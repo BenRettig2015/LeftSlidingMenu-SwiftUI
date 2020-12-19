@@ -1,24 +1,24 @@
 //
-//  CommonView.swift
+//  MenuViewModel.swift
 //  LeftSlidingMenu-SwiftUI
 //
 //  Created by Hasan, MdAdit on 4/9/20.
+// Recreated by Benjamin Rettig on 12/19/2020
+
 //  Copyright © 2020 FirstAlert. All rights reserved.
 //
 
+import Foundation
 import SwiftUI
+import Combine
 
 
-public enum ViewType: String {
-    case Home
-    case Accounts
-    case FAQ
-    case TermsAndPrivacy
-}
 
-class CommonView {
+class MenuViewModel: ObservableObject {
     
-    var viewType:ViewType = .Home
+ 
+
+    @Published var viewType: MenuModel = .Home
     
     init(title:String) {
         
@@ -41,9 +41,7 @@ class CommonView {
         }
     }
     
-    func getViewType() -> ViewType {
-        return viewType
-    }
+
     
     func containedView() -> AnyView {
         
@@ -61,4 +59,7 @@ class CommonView {
             return AnyView(TermsAndPrivacyView())
         }
     }
+    
+    
+  
 }
